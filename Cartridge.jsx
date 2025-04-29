@@ -76,7 +76,7 @@ export default function Cartridge({
     nodes['GB_02_low_Screen'].material= materialTest  ; 
   }, [polarCoordinates[0]]);
 
-  const modelPath = getModelPath('Test.glb'); // Retrieve model path from base url. 
+  const modelPath = getModelPath('Test-optimized.glb'); // Retrieve model path from base url. 
 
   // Load GLTF data using useGLTF
  
@@ -191,7 +191,8 @@ export default function Cartridge({
 
 // Preload the model
 try {
-  useGLTF.preload(getModelPath('Test.glb'));
+  useGLTF.preload(getModelPath('Test-optimized.glb'));
 } catch (error) {
   console.error('Error preloading model:', error);
 }
+
