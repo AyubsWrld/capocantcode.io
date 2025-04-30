@@ -47,6 +47,7 @@ export default function Cartridge({
 }) {
 
   var texture;  // Global scope this so we can change it later  Dont really need this anymore tbh ; 
+  const selectedRef = useRef(0) ; 
   const easing = BezierEasing(0.125, 0.545, 0.070, 0.910);
   // Create the HTML element to be used within setting the texture value.
   // <video> </video>  <- basically all it does.
@@ -60,7 +61,6 @@ export default function Cartridge({
       VideoTexturesArray.push( UriToVideoTexture( element ) ) ; 
     })
   }, []) ;
-
 
 
   // Max array length, I js do this to avoid magic numbers. ( Although VideoTexturesArray.length() is pretty descriptive )
@@ -84,10 +84,6 @@ export default function Cartridge({
 
 
   // 
-  buttonMesh.addEventListener( 'customEvent' , (event) => { 
-    console.log('eventFired: ', event ) ;
-  });
-
   buttonMesh.dispatchEvent( { type : 'customEvent' } ); // called twice ? 
 
   const groupRef = useRef();
@@ -156,8 +152,6 @@ export default function Cartridge({
         console.error(`Error occured while setting the mesh : ${e}`) ;
       }
     }
-    console.log(isStartScreenLoading) ;
-    console.log('selectedProject' )
   } , [ selectedProject ]
   );
 
